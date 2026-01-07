@@ -1,0 +1,45 @@
+# Dotfiles gitignore
+# Ajusta esta lista según lo que quieras versionar
+
+# Directorios de caché y estado
+.cache/
+.local/share/
+.local/state/
+.ansible/
+.pki/
+.ssh/
+.gnupg/
+
+# Historiales y temporales
+.bash_history
+.zsh_history
+.python_history
+lesshst
+wget-hsts
+*.swp
+*.swo
+
+# Dependencias y build
+node_modules/
+venv/
+*.pyc
+__pycache__/
+
+# Archivos sensibles
+.env
+.env.*
+secrets.*
+*.key
+*.pem
+*.p12
+*.crt
+*.csr
+
+# Basura de sistema
+.DS_Store
+Thumbs.db
+
+# Otros
+*.iso
+*.img
+*.retry

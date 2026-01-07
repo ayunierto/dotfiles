@@ -1,0 +1,103 @@
+@import "colors/colors.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    font-family: "Maple Mono NF", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    font-family: inherit;
+    background: alpha(@Base, 0.9);
+    border-bottom: 1px solid @unfocused_borders;
+    color: @theme_text_color;
+    border-radius: 10px;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: white;
+}
+
+#workspaces {
+    min-width: 0;
+    margin: 18px;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button {
+    color: transparent;
+    background: linear-gradient(180deg, @Blue 0%, @Surface0 100%);
+    transition: all 0.3s ease-in-out;
+    min-width: 8px;
+    margin: 5px 0px;
+    border-radius: 3px;
+}
+
+#workspaces button.active {
+    background: linear-gradient(180deg, @Blue 0%, @Lavender 100%);
+    min-height: 80px;
+    border-radius: 5px;
+}
+
+
+#workspaces button:hover {
+    background: linear-gradient(180deg, @Blue 0%, @Lavender 100%);
+}
+
+
+#mode {
+    padding: 0 10px;
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#clock {
+    padding: 8px 0px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#battery {
+    color: @Text;
+    font-size: 18px;
+}
+
+#battery.charging {
+    color: white;
+    background-color: #26A65B;
+}
+
+#battery.warning:not(.charging) {
+    background: #f53c3c;
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network {
+    font-size: 18px;
+}
+/* #network.disabled */
+/* #network.disconnected */
+/* #network.linked */
+/* #network.ethernet */
+/* #network.wifi */
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+

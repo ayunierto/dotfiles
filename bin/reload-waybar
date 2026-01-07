@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Safe waybar reload script
+
+pkill -x waybar
+sleep 0.2
+nohup waybar >/dev/null 2>&1 &

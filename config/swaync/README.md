@@ -1,0 +1,1 @@
+# placeholder swaync config
