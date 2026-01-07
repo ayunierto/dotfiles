@@ -1,32 +1,31 @@
-# 🏠 Dotfiles & Arch Linux Installer
+# Dotfiles & Arch Linux Installer
 
 Repositorio completo para instalación automatizada de Arch Linux y configuración de entorno de escritorio Hyprland.
 
-## 📋 Contenido
+## Contenido
 
 Este repositorio contiene **dos partes principales**:
 
 1. **`system/`** - Instalador de Arch Linux (sistema base)
 2. **`desktop/`** - Entorno de escritorio Hyprland + aplicaciones
-3. **`config/`** - Archivos de configuración
+3. **`config/`** - Archi vos de configuración
 
-## 🚀 Inicio Rápido
+## Inicio Rápido
 
 ### 1. Instalar Sistema Base (desde Live ISO)
 
 ```bash
-cd system
-sudo ./install.sh
+cd system && chmod +x install.sh && ./install.sh
 ```
 
 Instala:
 
-- ✅ Sistema base de Arch Linux
-- ✅ Particiones y bootloader (GRUB)
-- ✅ Red (NetworkManager)
-- ✅ Usuarios y sudo
-- ✅ yay (AUR helper)
-- ✅ Drivers AMD (opcional)
+- Sistema base de Arch Linux
+- Particiones y bootloader (GRUB)
+- Red (NetworkManager)
+- Usuarios y sudo
+- yay (AUR helper)
+- Drivers AMD (opcional)
 
 [Ver guía completa →](system/README.md)
 

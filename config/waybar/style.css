@@ -1,103 +1,158 @@
-@import "colors/colors.css";
+@import "theme/theme.css";
 
 * {
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    margin: 0;
-    font-family: "Maple Mono NF", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
-    min-height: 0;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  font-family: "Maple Mono NF", "JetBrainsMono NF", Roboto, sans-serif;
+  min-height: 0px;
+  min-width: 0px;
 }
 
 window#waybar {
-    font-family: inherit;
-    background: alpha(@Base, 0.9);
-    border-bottom: 1px solid @unfocused_borders;
-    color: @theme_text_color;
-    border-radius: 10px;
+  background: transparent;
+  border: none;
+  font-family: "Maple Mono NF", "JetBrainsMono NF", Roboto, sans-serif;
+  color: @foreground;
 }
 
 tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(100, 114, 125, 0.5);
+  background: @popover;
+  border: 1px solid @border;
+  border-radius: 10px;
+  padding: 12px;
 }
+
 tooltip label {
-  color: white;
+  color: @popoverForeground;
+}
+
+#network,
+#battery,
+#clock,
+#workspaces button,
+#wireplumber,
+#window, /*hyprland active windows*/
+#temperature,
+#custom-power,
+#backlight {
+  background: @card;
+  color: @cardForeground;
+  border: 2px solid @border;
+  border-radius: 10px;
+  padding: 10px 10px;
+  min-width: 28px;
+  margin-left: 4px;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
 }
 
 #workspaces {
-    min-width: 0;
-    margin: 18px;
-    transition: all 0.3s ease-in-out;
 }
 
 #workspaces button {
-    color: transparent;
-    background: linear-gradient(180deg, @Blue 0%, @Surface0 100%);
-    transition: all 0.3s ease-in-out;
-    min-width: 8px;
-    margin: 5px 0px;
-    border-radius: 3px;
 }
 
-#workspaces button.active {
-    background: linear-gradient(180deg, @Blue 0%, @Lavender 100%);
-    min-height: 80px;
-    border-radius: 5px;
-}
-
-
+#workspaces button.focused,
+#workspaces button.active,
 #workspaces button:hover {
-    background: linear-gradient(180deg, @Blue 0%, @Lavender 100%);
+  /* background: linear-gradient(90deg, @Surface1 0%, @Surface1 100%); */
+  background-color: @accent;
+  color: @accentForeground;
 }
 
+/* #wireplumber.muted */
+/* #wireplumber.sink-muted */
+/* #wireplumber.source-muted */
 
 #mode {
-    padding: 0 10px;
-    background: #64727D;
-    border-bottom: 3px solid white;
+  padding: 0 10px;
+  background: #64727d;
+  border-bottom: 3px solid white;
 }
 
-#clock {
-    padding: 8px 0px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-#battery {
-    color: @Text;
-    font-size: 18px;
-}
+/* #temperature.warning #temperature.critical  */
 
 #battery.charging {
-    color: white;
-    background-color: #26A65B;
+  /* background-color: @success; */
+  /* border: 2px solid @success; */
+  color: @success;
 }
 
 #battery.warning:not(.charging) {
-    background: #f53c3c;
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  background: @destructive;
+  color: @destructiveForeground;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-#network {
-    font-size: 18px;
+menu {
+  background: @background;
+  color: @foreground;
+  border: 2px solid @border;
+  border-radius: 10px;
+  padding: 6px;
 }
-/* #network.disabled */
-/* #network.disconnected */
-/* #network.linked */
-/* #network.ethernet */
-/* #network.wifi */
+
+menuitem {
+  color: @foreground;
+  border-radius: 8px;
+  padding: 10px 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+menuitem label {
+  color: inherit;
+  font-size: 15px;
+}
+
+menuseparator {
+  background-color: @muted;
+}
+
+menuitem:hover {
+  background: @muted;
+}
+
+menuitem.reboot:hover {
+  background: @warning;
+  color: @warningForeground;
+}
+
+menuitem.shutdown {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: @destructive;
+}
+
+menuitem.shutdown:hover {
+  background: @destructive;
+  color: @destructiveForeground;
+}
+
+menuseparator {
+  background-color: @muted;
+  margin: 6px 4px;
+}
+
+#custom-power {
+  color: @destructive;
+}
+
+#custom-power:hover {
+  background-color: @accent;
+  color: @accentForeground;
+}
+
+/* TODO: Crear una animacion cuando la bateria este baja */
 
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: black;
-    }
+  to {
+    background-color: @destructive;
+    color: @destructiveForeground;
+  }
 }
-

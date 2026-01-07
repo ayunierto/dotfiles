@@ -1,59 +1,8 @@
-// -*- mode: jsonc -*-
-{
-    "layer": "top", // Waybar at top layer
-    "position": "left", // Waybar position (top|bottom|left|right)
-    // "height": 24, // Waybar height (to be removed for auto height)
-    "width": 36, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    "margin": "6px", // Margin around waybar
-    "separator": " | ", // Separator between modules
-    // Choose the order of the modules
-    "modules-left": [
-    ],
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
-    "modules-right": [
-        "network",
-        "battery",
-        "clock"
-    ],
-
-    // Modules configuration
-    "hyprland/workspaces": {
-    "format": "{id}",
-    "cursor": "pointer",
-    "on-click": "hyprctl dispatch workspace {id}",
-    "on-scroll-up": "hyprctl dispatch workspace prev",
-    "on-scroll-down": "hyprctl dispatch workspace next"
-    },
-    "clock": {
-        "locale": "C",
-        "format": "{:%H\n%M}",
-        "format-alt": "{:%Y-%m-%d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-    "battery": {
-        "bat": "BAT0",
-        "interval": 60,
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "max-length": 25
-    },
-    "network": {
-        "interface": "wlp1s0",
-        "format": "{ifname}",
-        "format-wifi": " " ,
-        "format-ethernet": "{ipaddr}/{cidr} 󰊗 ",
-        "format-disconnected": "", //An empty format will hide the module.
-        "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
-        "tooltip-format-ethernet": "{ifname} ",
-        "tooltip-format-disconnected": "Disconnected",
-        "max-length": 100
-    }
-}
+[
+  {
+    "reload_style_on_change": true,
+    "toggle": true,
+    "include": "~/.config/waybar/bars/top-bar.jsonc",
+    "layer": "top"
+  }
+]

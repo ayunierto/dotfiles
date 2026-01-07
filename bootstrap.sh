@@ -15,6 +15,8 @@ FILES=(
 
 # Directorios dentro de ~/.config
 CONFIG_DIRS=(
+  "gtk-3.0"
+  "gtk-4.0"
   "hypr"
   "kitty"
   "rofi"
