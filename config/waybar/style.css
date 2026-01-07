@@ -28,24 +28,33 @@ tooltip label {
   color: @popoverForeground;
 }
 
+#cpu,
+#backlight,
+#temperature,
+#wireplumber,
 #network,
+#custom-notifications,
 #battery,
 #clock,
 #workspaces button,
-#wireplumber,
 #window, /*hyprland active windows*/
-#temperature,
-#custom-power,
-#backlight {
+#custom-power {
   background: @card;
   color: @cardForeground;
   border: 2px solid @border;
   border-radius: 10px;
   padding: 10px 10px;
-  min-width: 28px;
+  min-width: 22px;
   margin-left: 4px;
   font-size: 14px;
   transition: all 0.3s ease-in-out;
+  font-size: 12px;
+  box-shadow: 0 2px 4px rgba(0, 2, 20, 0.4);
+}
+
+#window {
+  background: linear-gradient(90deg, @secondary 0%, @primary 50%);
+  color: @accentForeground;
 }
 
 #workspaces {
@@ -65,6 +74,11 @@ tooltip label {
 /* #wireplumber.muted */
 /* #wireplumber.sink-muted */
 /* #wireplumber.source-muted */
+
+#custom-notifications {
+  color: @warning;
+  /* margin-bottom: 10px; */
+}
 
 #mode {
   padding: 0 10px;

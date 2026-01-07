@@ -9,6 +9,8 @@
 .pki/
 .ssh/
 .gnupg/
+config/Code/*
+!config/Code/User/settings.json
 
 # Historiales y temporales
 .bash_history

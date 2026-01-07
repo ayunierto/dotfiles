@@ -5,6 +5,7 @@
     "menu": "on-click",
     "menu-file": "~/.config/waybar/power_menu.xml",
     "menu-actions": {
+      "logout": "hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit",
       "suspend": "systemctl suspend",
       "reboot": "reboot",
       "shutdown": "shutdown"

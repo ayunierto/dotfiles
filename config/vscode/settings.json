@@ -1,6 +1,6 @@
 {
   "editor.fontFamily": "'JetBrainsMono NF' , 'Maple Mono NF' , 'Fira Code', 'Courier New', monospace",
-  "chat.fontSize": 14,
+  "editor.fontSize": 14,
   "github.copilot.nextEditSuggestions.enabled": true,
   "editor.minimap.enabled": false,
   "git.enableSmartCommit": true,
@@ -19,5 +19,9 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
-  "chat.viewSessions.enabled": false
+  "chat.viewSessions.enabled": false,
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "chat.commandCenter.enabled": false,
+  "workbench.editor.showTabs": "single"
 }
