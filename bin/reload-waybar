@@ -4,3 +4,9 @@
 pkill -x waybar
 sleep 0.2
 nohup waybar >/dev/null 2>&1 &
+
+sleep 0.2
+
+pkill -x swaync
+sleep 0.2
+nohup swaync >/dev/null 2>&1 &

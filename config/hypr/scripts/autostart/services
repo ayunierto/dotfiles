@@ -13,7 +13,7 @@ waybar &
 swaync &
 
 # Idle daemon to screen lock
-# hypridle &
+hypridle &
 
 # Polkit authentication
 # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

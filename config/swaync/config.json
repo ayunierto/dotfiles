@@ -1,51 +1,144 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
-  "ignore-gtk-theme": true,
   "positionX": "right",
-  "positionY": "bottom",
-  "layer": "overlay",
-  "control-center-layer": "top",
-  "layer-shell": true,
+  "positionY": "top",
   "cssPriority": "user",
-  "layer-shell-cover-screen": true,
-  "control-center-margin-top": 0,
-  "control-center-margin-bottom": 0,
-  "control-center-margin-right": 0,
+
+  "control-center-width": 460,
+  "control-center-height": 960,
+  "control-center-margin-top": 2,
+  "control-center-margin-bottom": 2,
+  "control-center-margin-right": 1,
   "control-center-margin-left": 0,
-  "notification-icon-size": 100,
-  "notification-body-image-height": 100,
+
+  "notification-window-width": 400,
+  "notification-body-image-height": 160,
   "notification-body-image-width": 200,
-  "timeout": 10,
-  "timeout-low": 5,
-  "timeout-critical": 0,
-  "fit-to-screen": true,
-  "control-center-width": 500,
-  "control-center-height": 600,
-  "notification-window-width": 500,
+
+  "timeout": 4,
+  "timeout-low": 2,
+  "timeout-critical": 6,
+
+  "fit-to-screen": false,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
-  "transition-time": 200,
+  "transition-time": 300,
   "hide-on-clear": false,
-  "hide-on-action": true,
-  "widgets": ["title", "notifications"],
+  "hide-on-action": false,
+  "script-fail-notify": true,
+  "scripts": {
+    "sound-script": {
+      "exec": "paplay ~/.config/swaync/notification.ogg",
+      "app-name": ".*"
+    },
+    "example-script": {
+      "exec": "echo 'Do something...'",
+      "urgency": "Normal"
+    }
+  },
+  "notification-visibility": {
+    "example-name": {
+      "state": "muted",
+      "urgency": "Low",
+      "app-name": "Spotify"
+    }
+  },
+  "widgets": [
+    "label",
+    "buttons-grid",
+    "mpris",
+    "title",
+    "dnd",
+    "notifications"
+  ],
   "widget-config": {
+    "label": {
+      "max-lines": 1,
+      "text": " "
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "",
+          "command": "amixer set Master toggle",
+          "type": "toggle"
+        },
+        {
+          "label": "",
+          "command": "amixer set Capture toggle",
+          "type": "toggle"
+        },
+        {
+          "label": " ",
+          "command": "nm-connection-editor"
+        },
+        {
+          "label": "󰂯",
+          "command": "blueman-manager"
+        },
+        {
+          "label": "󰏘",
+          "command": "nwg-look"
+        },
+        {
+          "label": "󰏘",
+          "command": "nwg-look"
+        },
+        {
+          "label": "󰏘",
+          "command": "nwg-look"
+        },
+        {
+          "label": "󰏘",
+          "command": "nwg-look"
+        },
+        {
+          "label": "󰏘",
+          "command": "nwg-look"
+        },
+        {
+          "label": "󰝟",
+          "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+          "type": "toggle"
+        },
+        {
+          "label": "",
+          "command": "kitty bash -i -c 'tasks'"
+        },
+        {
+          "label": "",
+          "command": "hyprlock"
+        },
+        {
+          "label": "",
+          "command": "reboot"
+        },
+        {
+          "label": "",
+          "command": "shutdown now"
+        }
+      ]
+    },
+    "mpris": {
+      "blacklist": ["playerctl"],
+      "autohide": false,
+      "show-album-art": "always",
+      "loop-carousel": false
+    },
     "title": {
       "text": "Notifications",
       "clear-all-button": true,
-      "button-text": "Clear All"
+      "button-text": " 󰎟 "
     },
     "dnd": {
-      "text": "Do Not Disturb"
+      "text": "Do not disturb"
     },
-    "label": {
-      "max-lines": 1,
-      "text": "Notification Center"
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": true
     },
-    "mpris": {
-      "blacklist": [],
-      "autohide": true,
-      "show-album-art": "always",
-      "loop-carousel": false
+    "backlight": {
+      "label": "󰃟"
     }
   }
 }

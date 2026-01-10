@@ -337,7 +337,9 @@ ln -sf ~/dotfiles/config/.zshrc ~/.zshrc
 ```bash
 yay -S hyprland hyprlock hypridle waybar kitty \
        hyprpicker swww swaync grim playerctl \
-       rofi wl-clipboard brightnessctl slurp
+       rofi wl-clipboard brightnessctl slurp \
+        exa bat xdg-desktop-portal-hyprland \
+        blueman nm-connection-editor
 ```
 
 ### 2. Configurar Login Manager
