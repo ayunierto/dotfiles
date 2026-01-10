@@ -1,53 +1,57 @@
-/*style_11*/
+/* @import '../waybar/theme/theme.css'; */
+@import url('/home/neo/.config/waybar/theme/theme.css');
+
 * {
-  font-family: 'Font Awesome 5 Free', Roboto, Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-family: 'JetBrainsMono NF', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
   border: none;
 }
 
 #window {
   background-color: transparent;
+  transition: background-color 0.3s ease;
 }
 
 #outer-box {
-  background-color: rgba(49, 50, 68, 0.95);
-  border: 2px solid rgba(137, 180, 250, 0.3);
-  border-radius: 10px;
-  padding: 15px;
+  background-color: alpha(@card, 0.7);
+  border: 1px solid @border;
+  border-radius: 12px;
+  /* padding: 15px; */
 }
 
 #input {
-  background-color: rgb(69, 71, 90);
-  color: rgb(205, 214, 244);
-  padding: 8px 12px;
-  margin-bottom: 16px;
-  border: 2px solid rgba(137, 180, 250, 0.3);
+  background-color: @input;
+  color: @foreground;
+  border: 2px solid @border;
   border-radius: 10px;
+  margin: 16px 16px 0 16px;
+  padding: 8px 12px;
+}
+
+#input::placeholder {
+  color: @mutedForeground;
 }
 
 #input:focus {
-  box-shadow: 0 0 5px 6px rgba(137, 180, 250, 0.1);
+  border-color: @ring;
+  box-shadow: 0 0 0 2px alpha(@ring, 0.4);
 }
 
 #scroll {
-  margin-top: 5px;
+  padding: 10px;
 }
 
 #entry {
-  padding: 8px;
-  border-radius: 10px;
-  color: rgb(205, 214, 244);
   background-color: transparent;
+  color: @foreground;
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin: 0 10px;
+  border: none;
 }
 
 #entry:selected {
-  background-color: rgb(69, 71, 90);
-}
-
-#text:selected {
-  color: rgb(205, 214, 244);
-}
-
-#text {
-  padding: 4px 8px;
+  background-color: @accent;
+  color: @accentForeground;
+  font-weight: bold;
 }
