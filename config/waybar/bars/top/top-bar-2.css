@@ -27,6 +27,8 @@ tooltip label {
   color: @popoverForeground;
 }
 
+#custom-weather,
+#memory,
 #cpu,
 #backlight,
 #temperature,
@@ -48,6 +50,15 @@ tooltip label {
   transition: all 0.3s ease-in-out;
   box-shadow: 0 2px 4px rgba(0, 2, 20, 0.4);
   font-weight: bold;
+}
+
+#cpu {
+  min-width: 50px;
+}
+
+#custom-weather {
+  font-family: 'Maple Mono NF', 'JetBrainsMono Nerd Font Propo',
+    'Symbols Nerd Font', 'Noto Color Emoji', Roboto, 'Noto Sans', sans-serif;
 }
 
 /* #workspaces {

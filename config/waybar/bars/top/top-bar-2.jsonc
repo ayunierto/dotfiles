@@ -5,7 +5,7 @@
   "spacing": 4,
   "margin-top": 4,
 
-  "modules-left": [],
+  "modules-left": ["custom/weather", "memory", "cpu"],
   "modules-center": [
     "hyprland/workspaces"
     // "hyprland/submap",
@@ -13,7 +13,6 @@
   ],
 
   "modules-right": [
-    "cpu",
     "backlight",
     "temperature",
     "sway/language",
@@ -27,6 +26,7 @@
 
   // Modules configuration
   "include": [
+    "~/.config/waybar/modules/memory.jsonc",
     "~/.config/waybar/modules/custom-weather.jsonc",
     "~/.config/waybar/modules/hyprland-workspaces-persistent.jsonc",
     "~/.config/waybar/modules/cpu.jsonc",

@@ -76,6 +76,13 @@ sudo ./scripts/install-rofi.sh
 sudo reboot
 ```
 
+## Iconos y fuentes alternativas (fallback)
+
+```bash
+sudo pacman -S noto-fonts noto-fonts-extra noto-fonts-emoji ttf-nerd-fonts-symbols
+sudo fc-cache -r
+```
+
 ## 🧩 Scripts Modulares
 
 ### install-packages.sh
