@@ -11,8 +11,8 @@
 window#waybar {
   background: transparent;
   border: none;
-  font-family: 'Maple Mono NF', 'JetBrainsMono Nerd Font Propo', Roboto,
-    sans-serif;
+  font-family:
+    'Maple Mono NF', 'JetBrainsMono Nerd Font Propo', Roboto, sans-serif;
   color: @foreground;
 }
 
@@ -58,8 +58,9 @@ tooltip label {
 }
 
 #custom-weather {
-  font-family: 'Maple Mono NF', 'JetBrainsMono Nerd Font Propo',
-    'Symbols Nerd Font', 'Noto Color Emoji', Roboto, 'Noto Sans', sans-serif;
+  font-family:
+    'Maple Mono NF', 'JetBrainsMono Nerd Font Propo', 'Symbols Nerd Font',
+    'Noto Color Emoji', Roboto, 'Noto Sans', sans-serif;
 }
 
 /* #workspaces {
@@ -124,14 +125,17 @@ tooltip label {
   color: @primary;
 }
 
+/* Blink animation compatible with Waybar's CSS (simple steps and explicit keyframes) */
 #battery.warning:not(.charging) {
+  background: @warning;
+  color: @warningForeground;
+  animation: blink-warning 1s steps(2) infinite;
+}
+
+#battery.critical {
   background: @destructive;
   color: @destructiveForeground;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: steps(12);
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: blink-critical 1s steps(2) infinite;
 }
 
 menu {
@@ -199,8 +203,31 @@ menuseparator {
   color: @Teal;
 }
 
-@keyframes blink {
-  to {
+@keyframes blink-warning {
+  0% {
+    background-color: @warning;
+    color: @warningForeground;
+  }
+  50% {
+    background-color: @destructive;
+    color: @destructiveForeground;
+  }
+  100% {
+    background-color: @warning;
+    color: @warningForeground;
+  }
+}
+
+@keyframes blink-critical {
+  0% {
+    background-color: @destructive;
+    color: @destructiveForeground;
+  }
+  50% {
+    background-color: @warning;
+    color: @warningForeground;
+  }
+  100% {
     background-color: @destructive;
     color: @destructiveForeground;
   }
