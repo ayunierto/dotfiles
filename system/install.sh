@@ -65,18 +65,72 @@ show_menu_installed() {
     echo "  2) 📦 Instalar yay (AUR helper)"
     echo "  3) 🎮 Instalar drivers AMD"
     echo "  4) ✨ Instalación completa del sistema base"
+    echo "  5) 💿 Instalación base (particiones interactivas)"
     echo "  0) ❌ Salir"
     echo ""
     print_color "💡 Para el entorno de escritorio: cd ../desktop && ./install.sh" "$YELLOW"
     echo ""
-    read -p "Selecciona una opción [0-4]: " choice
+    read -p "Selecciona una opción [0-5]: " choice
 }
 
 install_base() {
     check_root
     print_color "💿 Iniciando instalación base..." "$BLUE"
     echo ""
-    ./scripts/install-base.sh
+    # Preguntar particiones de forma interactiva
+    ask_partitions() {
+        echo ""
+        print_color "⚙️  Configurar particiones para instalación base" "$BLUE"
+        echo "Deja en blanco para usar los valores por defecto en arch.env"
+        echo ""
+        read -rp "EFI partition: " EFI_PART
+        read -rp "Root partition: " ROOT_PART
+        read -rp "Home partition: " HOME_PART
+        read -rp "Mountpoint [/mnt]: " MOUNTPOINT
+        echo ""
+        echo "Resumen:"
+        if [[ -n "$EFI_PART" ]]; then
+            echo "  EFI:  $EFI_PART"
+        else
+            echo "  EFI:  (usar valor por defecto)"
+        fi
+        if [[ -n "$ROOT_PART" ]]; then
+            echo "  ROOT: $ROOT_PART"
+        else
+            echo "  ROOT: (usar valor por defecto)"
+        fi
+        if [[ -n "$HOME_PART" ]]; then
+            echo "  HOME: $HOME_PART"
+        else
+            echo "  HOME: (usar valor por defecto)"
+        fi
+        if [[ -n "$MOUNTPOINT" ]]; then
+            echo "  MOUNT: $MOUNTPOINT"
+        else
+            echo "  MOUNT: /mnt"
+        fi
+        echo ""
+        read -rp "¿Continuar con estas opciones? (s/N): " CONF
+        if [[ "$CONF" != "s" && "$CONF" != "S" ]]; then
+            echo "Instalación cancelada."
+            return 1
+        fi
+
+        ENV_CMD=""
+        [[ -n "$EFI_PART" ]] && ENV_CMD+="EFI_PART=\"$EFI_PART\" "
+        [[ -n "$ROOT_PART" ]] && ENV_CMD+="ROOT_PART=\"$ROOT_PART\" "
+        [[ -n "$HOME_PART" ]] && ENV_CMD+="HOME_PART=\"$HOME_PART\" "
+        [[ -n "$MOUNTPOINT" ]] && ENV_CMD+="MOUNTPOINT=\"$MOUNTPOINT\" "
+    }
+
+    if ask_partitions; then
+        if [[ -n "${ENV_CMD:-}" ]]; then
+            eval "$ENV_CMD ./scripts/install-base.sh"
+        else
+            ./scripts/install-base.sh
+        fi
+    fi
+
     echo ""
     print_color "🎉 ¡Instalación base completada!" "$GREEN"
     echo ""
@@ -143,6 +197,7 @@ run_installed_menu() {
                 ;;
             3) check_root; ./scripts/install-amd-drivers.sh; read -p "Presiona Enter...";;
             4) install_post_base; read -p "Presiona Enter...";;
+            5) check_root; install_base; read -p "Presiona Enter...";;
             0) print_color "👋 ¡Hasta luego!" "$BLUE"; exit 0;;
             *) print_color "❌ Opción inválida" "$RED"; sleep 2;;
         esac
