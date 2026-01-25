@@ -33,11 +33,7 @@ fi
 
 chmod +x scripts/*.sh
 
-# Detectar Live ISO
-IN_LIVE_ISO=false
-if [ -f "/run/archiso/bootmnt/arch/boot/x86_64/vmlinuz-linux" ]; then
-    IN_LIVE_ISO=true
-fi
+# Live ISO auto-detection removed per user request
 
 check_root() {
     if [ "$EUID" -ne 0 ]; then
@@ -157,8 +153,4 @@ run_installed_menu() {
     done
 }
 
-if [ "$IN_LIVE_ISO" = true ]; then
-    run_live_menu
-else
-    run_installed_menu
-fi
+run_installed_menu

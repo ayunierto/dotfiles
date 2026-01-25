@@ -4,11 +4,11 @@ Repositorio completo para instalación automatizada de Arch Linux y configuraci�
 
 ## Contenido
 
-Este repositorio contiene **dos partes principales**:
+Este repositorio contiene **tres partes principales**:
 
 1. **`system/`** - Instalador de Arch Linux (sistema base)
 2. **`desktop/`** - Entorno de escritorio Hyprland + aplicaciones
-3. **`config/`** - Archi vos de configuración
+3. **`config/`** - Archivos de configuración para personalización
 
 ## Inicio Rápido
 
