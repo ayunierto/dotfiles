@@ -18,6 +18,9 @@ print_color() {
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ENV_FILE="$SCRIPT_DIR/arch.env"
 
+# Asegurar que trabajamos desde el directorio del script para rutas relativas
+cd "$SCRIPT_DIR" || { print_color "❌ No se pudo cambiar a $SCRIPT_DIR" "$RED"; exit 1; }
+
 clear
 echo "================================================"
 print_color "  Instalador de Arch Linux (Sistema Base)" "$BLUE"
