@@ -131,3 +131,5 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 # EAS Build temporary directory
 export TMPDIR="$HOME/.eas-tmp"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
