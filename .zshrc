@@ -133,3 +133,10 @@ export PATH=$JAVA_HOME/bin:$PATH
 export TMPDIR="$HOME/.eas-tmp"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Created by `pipx` on 2026-03-21 04:36:59
+export PATH="$PATH:/home/neo/.local/bin"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
